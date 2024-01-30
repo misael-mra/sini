@@ -20,7 +20,7 @@ $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 <?php
 include("conecta-puxa-dados-admin.php");
-$sql_code2 = "select * from chamados1 WHERE Status='Aberto'";
+$sql_code2 = "select * from notificacoes WHERE Status='Aberto'";
 $execute2 = $mysqli->query($sql_code2) or die($mysqli->error);
 $produto2 = $execute2->fetch_assoc();
 $num2 = $execute2->num_rows;

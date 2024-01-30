@@ -5,7 +5,7 @@
   -moz-box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
 }
 
-.painel-notificacao{
+.painel-padrao{
     display: flex;
     background: #ffffff;
     color: #2074ef;

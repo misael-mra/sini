@@ -1,7 +1,7 @@
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code = "select * from chamados1 WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE Status='Aberto'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
@@ -24,6 +24,7 @@ $num2 = $execute->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Assets/css/main.css">
+    <link rel="stylesheet" href="../Assets/css/painel-padrao.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -70,9 +71,8 @@ $num2 = $execute->num_rows;
             </div>
         </div>
     </nav>
-
-    <div class="container">
-        <h2>Preencha os campos:</h2>
+    <div class="container painel-title">Cadastrar Usuário</div>
+    <div class="container painel-padrao">
         <form method="POST" action="processa_cad_tecnic.php">
             <div class="form-group">
                 <label for="nomecomptec">Nome Completo:</label>
@@ -86,10 +86,10 @@ $num2 = $execute->num_rows;
             </div>
             <div class="form-group">
                 <label for="nomesistec">Senha:</label>
-                <input type="text" class="form-control" id="senhatec" placeholder="senha para o técnico" name="senhatec"
+                <input type="text" class="form-control" id="senhatec" placeholder="Senha" name="senhatec"
                     required />
             </div>
-            <button type="submit" class="btn btn-default">Inserir Técnico</button>
+            <button type="submit" class="btn btn-primary">Inserir Técnico</button>
         </form>
     </div>
 </body>

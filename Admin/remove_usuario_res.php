@@ -1,7 +1,7 @@
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code = "select * from chamados1 WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE Status='Aberto'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
@@ -19,7 +19,7 @@ $num2 = $execute->num_rows;
 <html lang="pt-br">
 
 <head>
-    <title>Remove Técnico</title>
+    <title>Excluir usuário</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
