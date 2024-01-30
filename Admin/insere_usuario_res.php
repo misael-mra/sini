@@ -71,25 +71,43 @@ $num2 = $execute->num_rows;
             </div>
         </div>
     </nav>
-    <div class="container painel-title">Cadastrar Usuário</div>
+    <div class="container painel-title">CADASTRAR USUÁRIO</div>
     <div class="container painel-padrao">
         <form method="POST" action="processa_cad_tecnic.php">
-            <div class="form-group">
-                <label for="nomecomptec">Nome Completo:</label>
-                <input type="text" class="form-control" id="nomecomptec" placeholder="nome completo do técnico"
+            <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="nomecomptec"><span class="text-danger">*</span> Nome Completo</label>
+                <input type="text" class="form-control" id="nomecomptec" placeholder="Nome completo"
                     name="nomecomptec" required />
             </div>
-            <div class="form-group">
-                <label for="nomesistec">Nome Sistema:</label>
-                <input type="text" class="form-control" id="nomesistec" placeholder="nome no sistema do técnico"
+            <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email"
+                    name="email" required />
+            </div>
+            <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" id="telefone" placeholder="Telefone"
+                    name="telefone" required />
+            </div>
+            <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="setor"><span class="text-danger">*</span> Setor</label>
+                <input type="text" class="form-control" id="setor" placeholder="Senha" name="setor"
+                    required />
+            </div>
+            <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="nomesistec"><span class="text-danger">*</span> Usuário</label>
+                <input type="text" class="form-control" id="nomesistec" placeholder="Usuário"
                     name="nomesistec" required />
             </div>
-            <div class="form-group">
-                <label for="nomesistec">Senha:</label>
+            <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="nomesistec"><span class="text-danger">*</span> Senha</label>
                 <input type="text" class="form-control" id="senhatec" placeholder="Senha" name="senhatec"
                     required />
             </div>
-            <button type="submit" class="btn btn-primary">Inserir Técnico</button>
+            <div class="p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <button type="submit" class="btn p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-8 col-lg-8"
+                    id="btn-formulario">Cadastrar</button>
+            </div>
         </form>
     </div>
 </body>
