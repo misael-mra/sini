@@ -9,17 +9,17 @@
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code = "select * from chamados1 WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE Status='Aberto'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
-$num = $execute->num_rows;
+$num2 = $execute->num_rows;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <title>Área Administrativa Home</title>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -50,7 +50,7 @@ $num = $execute->num_rows;
                             <li><a href="nova-notificacao-admin.php">Abrir Notificação</a></li>
                             <li><a href="excluir-notificacao-admin.php">Deletar Notificação</a></li>
                             <li><a href="notificacoes_abertas.php">Notificações em Aberto <span
-                                        class="badge badge-danger"><?php echo $num;?></span></a></li>
+                                        class="badge badge-danger"><?php echo $num2;?></span></a></li>
                             <li><a href="notificacoes_concluidas.php">Notificações Concluídas</a></li>
                             <li><a href="visualizar-notificacoes-admin.php">Listar Notificações</a></li>
                         </ul>
