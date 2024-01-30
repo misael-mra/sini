@@ -1,0 +1,67 @@
+
+.container-fluid{
+  box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
+}
+
+.painel-notificacao{
+    display: flex;
+    background: #ffffff;
+    color: #2074ef;
+    border-radius: 0px 0px 5px 5px;
+    padding:  20px;
+    box-shadow: 2px 5px 5px 0px rgba(148,148,148,0.75);
+    -webkit-box-shadow: 2px 5px 5px 0px rgba(148,148,148,0.75);
+    -moz-box-shadow: 2px 5px 5px 0px rgba(148,148,148,0.75);
+}
+
+.painel-title{
+  box-shadow: 2px 5px 5px 0px rgba(148,148,148,0.75);
+  -webkit-box-shadow: 2px 5px 5px 0px rgba(148,148,148,0.75);
+  -moz-box-shadow: 2px 5px 5px 0px rgba(148,148,148,0.75);
+  padding: 10px;
+  border-radius: 5px 5px 0px 0px;
+  color: #ffffff;
+  background-color: #2074ef;
+}
+
+#btn-formulario{
+  height: 40px;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #2074ef;
+}
+
+#btn-formulario:hover{
+  color: #ffffff;
+  background-color: #0956c9;
+}
+
+.rodape{
+  box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(79,78,78,0.51);
+    background-color: #ffffff;
+    bottom: 0;
+    margin-top: 20px;
+    text-align: center;
+    left: 0;
+    height: 40px;
+    position: relative;
+    width: 100%;
+  }
+
+  .text-footer{
+    font-weight: bold;
+    color: #2074ef;
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  p{
+    color: #ffffff;
+    font-size: 14px;
+    padding: 10px;
+  }
+
