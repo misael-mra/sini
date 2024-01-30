@@ -17,7 +17,6 @@ $num2 = $execute->num_rows;
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>Home</title>
     <meta charset="utf-8">
