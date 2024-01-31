@@ -24,7 +24,7 @@ $num2 = $execute->num_rows;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Assets/css/main.css">
     <link rel="stylesheet" href="../Assets/css/painel-notificacao.css">
-
+</head>
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -34,7 +34,7 @@ $num2 = $execute->num_rows;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand" href="#">
+                <a href="Admin-Home.php"><img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand" href="#"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -196,8 +196,8 @@ $num2 = $execute->num_rows;
                 </div>
 
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <label for="comment"><span class="text-danger">*</span> Nome do Paciente</label>
-                    <input name="servico" class="form-control" id="comment" autocomplete="off" required></input>
+                    <label for="comment">Nome do Paciente</label>
+                    <input name="servico" class="form-control" id="comment" autocomplete="off"></input>
                 </div>
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <label for="comment">Prontuário</label>
@@ -249,7 +249,6 @@ $num2 = $execute->num_rows;
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js">
     </script>
     <script type="text/javascript" src="/bootstrap/pt-br.js"></script>
-    </head>
 </body>
 
 </html>

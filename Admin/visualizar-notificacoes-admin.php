@@ -52,7 +52,7 @@ $num2 = $execute2->num_rows;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand" href="#">
+                <a href="Admin-Home.php"><img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand" href="#"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
