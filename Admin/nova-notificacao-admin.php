@@ -177,7 +177,7 @@ $num2 = $execute->num_rows;
                     <label for="dataOcorrencia" class="control-label"><span class="text-danger">*</span> Data
                         Ocorrência: </label>
                     <div class="input-group datetimestamppicker"><input id="dataOcorrencia" name="dataOcorrencia"
-                            type="date" value="" class="form-control">
+                            type="DateTime-Local" value="" class="form-control">
                         <span class="input-group-addon"></span>
                     </div>
                 </div>
