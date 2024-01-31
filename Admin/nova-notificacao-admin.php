@@ -24,15 +24,6 @@ $num2 = $execute->num_rows;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Assets/css/main.css">
     <link rel="stylesheet" href="../Assets/css/painel-notificacao.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript" src="/bootstrap/pt-br.js"></script>
-</head>
 
 <body>
     <nav class="navbar navbar-inverse">
@@ -46,7 +37,7 @@ $num2 = $execute->num_rows;
                 <img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand" href="#">
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
                     <li class="active"><a href="Admin-Home.php">Home</a></li>
                     <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gerenciar Notificações<span
                                 class="caret"></span></a>
@@ -186,38 +177,27 @@ $num2 = $execute->num_rows;
                     <label for="dataOcorrencia" class="control-label"><span class="text-danger">*</span> Data
                         Ocorrência: </label>
                     <div class="input-group datetimestamppicker"><input id="dataOcorrencia" name="dataOcorrencia"
-                            type="text" value="" class="form-control datetime sonumeros">
-                        <span class="input-group-addon bg-primary text-white">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                            type="date" value="" class="form-control">
+                        <span class="input-group-addon"></span>
                     </div>
-                    <script type="text/javascript">
-                    $(function() {
-                        $(".datetime").mask("99/99/9999");
-                        $(".datetimestamppicker").datetimepicker({
-                            format: 'DD/MM/YYYY',
-                            defaultDate: new Date(),
-                            locale: moment.locale('pt-br'),
-                            useStrict: true,
-                            maxDate: new Date()
-                        });
-                    });
-                    </script>
                 </div>
-
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <label for="afetouPaciente" class="control-label"><span class="text-danger">*</span>
-                        Envolveu o Paciente? </label><select id="afetouPaciente" name="afetouPaciente"
-                        class="form-control">
-                        <option>SELECIONE</option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                    </select>
+                        Envolveu o Paciente? </label><br>
+                    <div class="btn-group">
+                        <label>
+                            <input type="radio" name="afetouPaciente" id="afetouPaciente1" value="sim" autocomplete="off"> Sim
+                        </label>
+                        <label>
+                            <input type="radio" name="afetouPaciente" id="afetouPaciente2" value="nao" autocomplete="off"
+                                style="margin-left:50px;" checked> Não
+                        </label>
+                    </div>
                 </div>
 
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="comment"><span class="text-danger">*</span> Nome do Paciente</label>
-                    <input name="servico" class="form-control" id="comment" required></input>
+                    <input name="servico" class="form-control" id="comment" autocomplete="off" required></input>
                 </div>
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <label for="comment">Prontuário</label>
@@ -229,7 +209,8 @@ $num2 = $execute->num_rows;
                 <H6>Descreva o evento (O quê, como, onde e quando ocorreu. Tente descrever o evento com o
                     máximo
                     possível de dados para podermos identificar a falha e melhorar nossos processos)</H6>
-                <textarea name="servico" class="form-control" rows="4" id="comment" required></textarea>
+                <textarea name="servico" class="form-control" rows="4" id="comment" autocomplete="off"
+                    required></textarea>
             </div>
 
             <!-- DATA OCORRENCIA 
@@ -260,6 +241,15 @@ $num2 = $execute->num_rows;
         <p class="text-footer">© 2024 ICEPES | CISNE - INSTITUTO CISNE DE ENSINO E PESQUISA. TODOS OS DIREITOS
             RESERVADOS.</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript" src="/bootstrap/pt-br.js"></script>
+    </head>
 </body>
 
 </html>
