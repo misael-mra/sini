@@ -33,7 +33,7 @@ $num2 = $execute2->num_rows;
 
 <head>
     <title>Notificações Abertas</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Assets/css/main.css">
@@ -99,10 +99,10 @@ $num2 = $execute2->num_rows;
                     <td><?php echo $produto['Tecnico']; ?></td>
                     <td><?php echo $produto['DataHora']; ?></td>
                     <?php if ($produto['Status']=="Aberto"){?>
-                    <td style="background-color:#F00;"> <?php echo $produto['Status']; ?></td>
+                    <td style="background-color:#ffbcbc;"> <?php echo $produto['Status']; ?></td>
                     <?php } 
 							 elseif ($produto['Status']=="Feito") {?>
-                    <td style="background-color:#0F0;"> <?php echo $produto['Status']; ?></td>
+                    <td style="background-color:#abfdab;"> <?php echo $produto['Status']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
                             href="responder_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
