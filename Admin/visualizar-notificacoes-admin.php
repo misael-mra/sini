@@ -85,8 +85,7 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container">
-        <h2>Notificações Recentes</h2>
-        <p>Lista com as últimas 10 notificações registradas</p>
+        <h2>Todas Notificações</h2>
         <table class="table table-striped table table-bordered table table-responsive">
             <?php if($num > 0){ ?>
             <thead class="painel-title">

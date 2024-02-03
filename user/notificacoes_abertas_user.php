@@ -32,7 +32,7 @@ $num2 = $execute2->num_rows;
 <html lang="pt-br">
 
 <head>
-    <title>Chamados em Aberto</title>
+    <title>Notificações Abertas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -80,7 +80,7 @@ $num2 = $execute2->num_rows;
         <h3>Responda suas notificações abaixo</h3>
         <table class="table table-striped table table-bordered">
             <?php if($num > 0){ ?>
-            <thead>
+            <thead class="painel-title">
                 <tr>
                     <th>Código</th>
                     <th>Local Ocorrência</th>
@@ -105,7 +105,7 @@ $num2 = $execute2->num_rows;
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
                             href="responder_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
-                            data-toggle="tooltip" title="Fazer Chamado"><span
+                            data-toggle="tooltip" title="Responder Notificação"><span
                                 class="glyphicon glyphicon-edit"></span>Fazer</button></td>
                 </tr>
                 <?php } while($produto = $execute->fetch_assoc()); ?>

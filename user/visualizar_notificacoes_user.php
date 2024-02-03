@@ -76,10 +76,10 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container">
-        <h3>Notificações para <?php echo $_SESSION['sess_usersisname'];?></h3>
+        <h3>Todas Notificações</h3>
         <table class="table table-striped table table-bordered">
             <?php if($num > 0){ ?>
-            <thead>
+            <thead class="painel-title">
                 <tr>
                     <th>Código</th>
                     <th>Local Ocorrência</th>
@@ -95,14 +95,14 @@ $num2 = $execute2->num_rows;
                     <td><?php echo $produto['Local'];?></td>
                     <td><?php echo $produto['DataHora']; ?></td>
                     <?php if ($produto['Status']=="Aberto"){?>
-                    <td style="background-color:#F00;"> <?php echo $produto['Status']; ?></td>
+                    <td style="background-color:#ffbcbc;"> <?php echo $produto['Status']; ?></td>
                     <?php } 
 							 elseif ($produto['Status']=="Feito") {?>
-                    <td style="background-color:#0F0;"> <?php echo $produto['Status']; ?></td>
+                    <td style="background-color:#abfdab;"> <?php echo $produto['Status']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
                             href="visualizar_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
-                            data-toggle="tooltip" title="Detalhes"><span
+                            data-toggle="tooltip" title="Visualizar notificação"><span
                                 class="glyphicon glyphicon-share"></span>Ver</button></td>
                 </tr>
                 <?php } while($produto = $execute->fetch_assoc()); ?>
