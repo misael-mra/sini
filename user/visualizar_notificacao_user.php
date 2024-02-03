@@ -2,23 +2,12 @@
     session_start();
     $role = $_SESSION['sess_userrole'];
     if(!isset($_SESSION['sess_username']) || $role!="tecnico"){
-      header('Location: ../index.php?err=2');
+       header('Location: ../index.php?err=2');
     }
+	$chamado = $_GET["chamado"];
 ?>
 <?php
-include("conexao.php");
-$pagina = isset($_GET['pagina']) ? max(0, intval($_GET['pagina'])) : 0;
-$itens_por_pagina = 20;
 $tecnico = $_SESSION['sess_username'];
-$item = $pagina * $itens_por_pagina;
-$sql_code = "select * from notificacoes WHERE  Tecnico='$tecnico'  ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
-$execute = $conn->query($sql_code) or die($conn->error);
-$produto = $execute->fetch_assoc();
-$num = $execute->num_rows;
-$num_total = $conn->query("select * from notificacoes WHERE  Tecnico='$tecnico'")->num_rows;
-$num_paginas = ceil($num_total/$itens_por_pagina);
-?>
-<?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
 $sql_code2 = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
@@ -26,11 +15,17 @@ $execute2 = $mysqli->query($sql_code2) or die($mysqli->error);
 $produto2 = $execute2->fetch_assoc();
 $num2 = $execute2->num_rows;
 ?>
+<?php
+include("conexao.php");
+$sql_code = "select contador,Local, Tecnico, DataHora,Status,servico,serviexecu,DataHoraAber,DataHoraFim from notificacoes WHERE  contador='$chamado'";
+$execute = $conn->query($sql_code) or die($conn->error);
+$produto = $execute->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <title>Minhas Notificações</title>
+    <title>Ver Chamado Técnico</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -75,64 +70,34 @@ $num2 = $execute2->num_rows;
             </div>
         </div>
     </nav>
-    <div class="container">
-        <h3>Todos os Chamados para <?php echo $_SESSION['sess_usersisname'];?></h3>
-        <table class="table table-striped table table-bordered">
-            <?php if($num > 0){ ?>
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Local Ocorrência</th>
-                    <th>Abertura</th>
-                    <th>Status</th>
-                    <th>Acões</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php do{ ?>
-                <tr>
-                    <td><?php echo $produto['contador'];?></td>
-                    <td><?php echo $produto['Local'];?></td>
-                    <td><?php echo $produto['DataHora']; ?></td>
-                    <?php if ($produto['Status']=="Aberto"){?>
-                    <td style="background-color:#F00;"> <?php echo $produto['Status']; ?></td>
-                    <?php } 
-							 elseif ($produto['Status']=="Feito") {?>
-                    <td style="background-color:#0F0;"> <?php echo $produto['Status']; ?></td>
-                    <?php } ?>
-                    <td> <a class="btn btn-info btn-sm"
-                            href="visualizar_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
-                            data-toggle="tooltip" title="Detalhes"><span
-                                class="glyphicon glyphicon-share"></span>Ver</button></td>
-                </tr>
-                <?php } while($produto = $execute->fetch_assoc()); ?>
-            </tbody>
-        </table>
-        <nav>
-            <ul class="pagination">
-                <li>
-                    <a href="visualizar_notificacoes_user.php?pagina=0" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <?php 
-				    for($i=0;$i<$num_paginas;$i++){
-				    $estilo = "";
-				    if($pagina == $i)
-				    	$estilo = "class=\"active\"";
-				    ?>
-                <li <?php echo $estilo; ?>><a
-                        href="visualizar_notificacoes_user.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
-                <?php } ?>
-                <li>
-                    <a href="visualizar_notificacoes_user.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
 
+
+
+    <div class="container">
+        <h2 class="text-center"><strong>Dados do Chamado <?php echo $chamado;?></strong></h2>
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Local do chamado:</strong></div>
+            <div class="panel-body"><?php echo $produto['Local'];?></div>
+            <div class="panel-heading"><strong>Serviço Solicitado:</strong></div>
+            <div class="panel-body"><?php echo $produto['servico'];?></div>
+            <div class="panel-heading"><strong>Data e Hora da abertura do Chamado:</strong></div>
+            <div class="panel-body"><?php echo $produto['DataHora'];?></div>
+            <div class="panel-heading"><strong>Serviço Executado:</strong></div>
+            <div class="panel-body"><?php echo $produto['serviexecu'];?></div>
+            <div class="panel-heading"><strong>Data e Hora Início do Atendimento:</strong></div>
+            <div class="panel-body"><?php echo $produto['DataHoraAber'];?></div>
+            <div class="panel-heading"><strong>Data e Hora Final do Atendimento:</strong></div>
+            <div class="panel-body"><?php echo $produto['DataHoraFim'];?></div>
+            <div class="panel-heading"><strong>Status do Chamado:</strong></div>
+            <?php if ($produto['Status']=="Aberto"){?>
+
+            <div class="panel-body" style="background-color:#F00;"> <?php echo $produto['Status']; ?></div>
+            <?php } 
+								elseif ($produto['Status']=="Feito") {?>
+            <div class="panel-body" style="background-color:#0F0;"> <?php echo $produto['Status']; ?></div>
             <?php } ?>
-        </nav>
+
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
