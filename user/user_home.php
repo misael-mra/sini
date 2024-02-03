@@ -8,16 +8,16 @@
 <?php
 include("conecta-puxa-dados-admin.php");
 $tecnico = $_SESSION['sess_username'];
-$sql_code = "select * from chamados1 WHERE Status='Aberto' AND Tecnico='$tecnico'";
+$sql_code = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <title>Área Técnico</title>
+  <title>Área Usuário</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -39,7 +39,7 @@ $num = $execute->num_rows;
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="Tecnico-Home.php">Home</a></li>
+        <li class="active"><a href="user_home.php">Home</a></li>
         <li>
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Chamados<span class="caret"></span></a>
         
@@ -49,8 +49,7 @@ $num = $execute->num_rows;
             <li><a href="Ver-chamados-tec.php">Listar Chamado</a></li>
           </ul>
         </li>		
-		
-      
+		    
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>

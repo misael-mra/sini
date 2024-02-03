@@ -30,7 +30,7 @@
 			break;
 			
 			case "tecnico":
-			header('Location: Tecnico/Tecnico-Home.php');
+			header('Location: user/user_home.php');
 			break;
 			
 			case "subadim":

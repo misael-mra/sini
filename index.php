@@ -28,7 +28,7 @@
         ?>
         <form action="autenticacao-usuario.php" method="POST" role="form" autocomplete="off">
             <div class="form-group">
-                <label for="email">Usuário:</label>
+                <label for="usuario">Usuário:</label>
                 <input type="text" name="username" class="form-control" placeholder="CPF" required autofocus>
             </div>
             <div class="form-group">
