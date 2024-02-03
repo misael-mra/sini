@@ -104,7 +104,7 @@ $num2 = $execute2->num_rows;
                     <td style="background-color:#0F0;"> <?php echo $produto['Status']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
-                            href="fazer-chamado-tec.php?chamado=<?php echo $produto['contador'];?>"
+                            href="responder_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
                             data-toggle="tooltip" title="Fazer Chamado"><span
                                 class="glyphicon glyphicon-edit"></span>Fazer</button></td>
                 </tr>
