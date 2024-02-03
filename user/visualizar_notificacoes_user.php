@@ -11,23 +11,23 @@ $itens_por_pagina = 5;
 $pagina = intval($_GET['pagina']);
 $tecnico = $_SESSION['sess_username'];
 $item = $pagina * $itens_por_pagina;
-$sql_code = "select * from chamados1 WHERE  Técnico='$tecnico'  ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
+$sql_code = "select * from notificacoes WHERE  Tecnico='$tecnico'  ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
-$num_total = $conn->query("select * from chamados1 WHERE  Técnico='$tecnico'")->num_rows;
+$num_total = $conn->query("select * from notificacoes WHERE  Tecnico='$tecnico'")->num_rows;
 $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code2 = "select * from chamados1 WHERE Status='Aberto' AND Técnico='$tecnico'";
+$sql_code2 = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
 $execute2 = $mysqli->query($sql_code2) or die($mysqli->error);
 $produto2 = $execute2->fetch_assoc();
 $num2 = $execute2->num_rows;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <title>Todos meus chamados</title>
  <meta charset="utf-8">
