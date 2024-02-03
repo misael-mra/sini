@@ -137,25 +137,25 @@ $num2 = $execute->num_rows;
                             Local Ocorrência: </label><select id="isnUnidadeOcorrencia" name="isnUnidadeOcorrencia"
                             class="form-control">
                             <option value="0">SELECIONE</option>
-                            <option value="119">ALMOXARIFADO</option>
-                            <option value="125">AMBULATÓRIO</option>
-                            <option value="128">CENTRAL DE TRANSPORTE DE PACIENTES</option>
-                            <option value="135">COORDENAÇÃO GERAL DE ENFERMAGEM</option>
-                            <option value="133">DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
-                            <option value="132">DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
-                            <option value="131">DIREÇÃO GERAL</option>
-                            <option value="120">FARMÁCIA</option>
-                            <option value="113">MANUTENÇÃO</option>
-                            <option value="134">NAC</option>
-                            <option value="118">NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
-                            <option value="115">NÚCLEO ADM.FINANCEIRO</option>
-                            <option value="116">NÚCLEO ADMINISTRATIVO HOTELARIA</option>
-                            <option value="163">NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
-                            <option value="117">NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
-                            <option value="114">NÚCLEO GESTÃO PESSOAS</option>
-                            <option value="161">OUVIDORIA</option>
-                            <option value="136">SERVIÇO SOCIAL</option>
-                            <option value="157">SESMT</option>
+                            <option value="1">ALMOXARIFADO</option>
+                            <option value="2">AMBULATÓRIO</option>
+                            <option value="3">CENTRAL DE TRANSPORTE DE PACIENTES</option>
+                            <option value="4">COORDENAÇÃO GERAL DE ENFERMAGEM</option>
+                            <option value="5">DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
+                            <option value="6">DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
+                            <option value="7">DIREÇÃO GERAL</option>
+                            <option value="8">FARMÁCIA</option>
+                            <option value="9">MANUTENÇÃO</option>
+                            <option value="10">NAC</option>
+                            <option value="11">NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
+                            <option value="12">NÚCLEO ADM.FINANCEIRO</option>
+                            <option value="13">NÚCLEO ADMINISTRATIVO HOTELARIA</option>
+                            <option value="14">NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
+                            <option value="15">NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
+                            <option value="16">NÚCLEO GESTÃO PESSOAS</option>
+                            <option value="17">OUVIDORIA</option>
+                            <option value="18">SERVIÇO SOCIAL</option>
+                            <option value="19">SESMT</option>
                         </select>
                     </div>
                 </div>

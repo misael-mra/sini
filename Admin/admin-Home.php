@@ -71,7 +71,7 @@ $num2 = $execute->num_rows;
         </div>
     </nav>
     <div class="container conteudo-home">
-        <h3>Sistema Interno de Notificações e Eventos</h3><br>
+        <h3>Sistema Interno de Notificações e Incidentes</h3><br>
         <h4>Bem vindo, <?php echo $_SESSION['sess_usersisname'];?></h4><br>
         <p>A notificação de incidentes é fundamental para identificar falhas, aprimorar os processos, fortalecer a
             segurança tanto do paciente quanto do colaborador e promover aprendizado institucional.</p>
