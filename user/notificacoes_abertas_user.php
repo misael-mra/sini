@@ -76,7 +76,7 @@ $num2 = $execute2->num_rows;
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="limitscrol">
         <h3>Responda suas notificações abaixo</h3>
         <table class="table table-striped table table-bordered">
             <?php if($num > 0){ ?>

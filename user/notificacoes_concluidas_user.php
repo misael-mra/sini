@@ -75,21 +75,22 @@ $num2 = $execute2->num_rows;
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="limitscrol">
         <h3>Seus chamados concluídos</h3>
         <table class="table table-striped table table-bordered">
-            <?php if($num > 0){ ?>
+            <?php if($num >= 0){ ?>
             <thead>
                 <tr>
-                    <th>OS</th>
-                    <th>Local</th>
-                    <th>Tecnico</th>
+                    <th>Código</th>
+                    <th>Local Ocorrência</th>
+                    <th>Responsável pelo Setor</th>
                     <th>Abertura</th>
                     <th>Status</th>
-                    <th>Det.</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
+            <?php if($num > 0){ ?>
                 <?php do{ ?>
                 <tr>
                     <td><?php echo $produto['contador'];?></td>
@@ -103,17 +104,18 @@ $num2 = $execute2->num_rows;
                     <td style="background-color:#abfdab;"> <?php echo $produto['Status']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
-                            href="ver-1chamado-tecnico.php?chamado=<?php echo $produto['contador'];?>"
+                            href="visualizar_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
                             data-toggle="tooltip" title="Detalhes"><span
                                 class="glyphicon glyphicon-share"></span>Ver</button></td>
                 </tr>
                 <?php } while($produto = $execute->fetch_assoc()); ?>
+                <?php } ?>
             </tbody>
         </table>
         <nav>
             <ul class="pagination">
                 <li>
-                    <a href="Chamados_concluidos_tec.php?pagina=0" aria-label="Previous">
+                    <a href="notificacoes_concluidas_user.php?pagina=0" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -124,10 +126,10 @@ $num2 = $execute2->num_rows;
 				    	$estilo = "class=\"active\"";
 				    ?>
                 <li <?php echo $estilo; ?>><a
-                        href="Chamados_concluidos_tec.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
+                        href="notificacoes_concluidas_user.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
                 <?php } ?>
                 <li>
-                    <a href="Chamados_concluidos_tec.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
+                    <a href="notificacoes_concluidas_user.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
