@@ -6,9 +6,10 @@ if (!isset($_SESSION['sess_username']) || $role != "tecnico") {
 }
 ?>
 <?php
+$tecnico = $_SESSION['sess_username'];
 include("conecta-puxa-dados-admin.php");
 // puxar notificacoes do banco
-$sql_code = "select * from notificacoes WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
@@ -25,6 +26,7 @@ $num2 = $execute->num_rows;
     <link rel="stylesheet" href="../Assets/css/main.css">
     <link rel="stylesheet" href="../Assets/css/painel-notificacao.css">
 </head>
+
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -34,31 +36,25 @@ $num2 = $execute->num_rows;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="Admin-Home.php"><img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand" href="#"></a>
+                <a href="user_home.php"><img src="../Assets/img/logo-index.png" alt="logo" class="navbar-brand"
+                        href="#"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="Admin-Home.php">Home</a></li>
-                    <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gerenciar Notificações<span
+                    <li class="active"><a href="user_home.php">Home</a></li>
+                    <li><a href="nova_notificacao_user.php">Abrir Notificação</a></li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Minhas Notificações<span
                                 class="caret"></span></a>
+
                         <ul class="dropdown-menu multi-level">
-                            <li><a href="nova-notificacao-admin.php">Abrir Notificação</a></li>
-                            <li><a href="excluir-notificacao-admin.php">Deletar Notificação</a></li>
-                            <li><a href="notificacoes_abertas.php">Notificações em Aberto <span
+                            <li><a href="notificacoes_abertas_user.php">Notificações Abertas <span
                                         class="badge badge-danger"><?php echo $num2;?></span></a></li>
-                            <li><a href="notificacoes_concluidas.php">Notificações Concluídas</a></li>
-                            <li><a href="visualizar-notificacoes-admin.php">Listar Notificações</a></li>
+                            <li><a href="notificacoes_concluidas_user.php">Notificações Concluídas</a></li>
+                            <li><a href="visualizar_notificacoes_user.php">Listar Notificações</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuários<span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="insere_usuario_res.php">Inserir Usuário</a></li>
-                            <li><a href="remove_usuario_res.php">Remover Usuário</a></li>
-                            <li><a href="visualizar-usuario.php">Ver Usuário</a></li>
-                        </ul>
-                    </li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Sair</a></li>
@@ -186,11 +182,12 @@ $num2 = $execute->num_rows;
                         Envolveu o Paciente? </label><br>
                     <div class="btn-group">
                         <label>
-                            <input type="radio" name="afetouPaciente" id="afetouPaciente1" value="sim" autocomplete="off"> Sim
+                            <input type="radio" name="afetouPaciente" id="afetouPaciente1" value="sim"
+                                autocomplete="off"> Sim
                         </label>
                         <label>
-                            <input type="radio" name="afetouPaciente" id="afetouPaciente2" value="nao" autocomplete="off"
-                                style="margin-left:50px;" checked> Não
+                            <input type="radio" name="afetouPaciente" id="afetouPaciente2" value="nao"
+                                autocomplete="off" style="margin-left:50px;" checked> Não
                         </label>
                     </div>
                 </div>

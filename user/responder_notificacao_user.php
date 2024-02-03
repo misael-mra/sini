@@ -81,11 +81,11 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container">
-        <h2>Dados do Chamado <?php echo $chamado;?></h2>
+        <h2>Dados da Notificação <?php echo $chamado;?></h2>
         <div class="panel panel-default">
-            <div class="panel-heading"><strong>Local do chamado:</strong></div>
+            <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
             <div class="panel-body"><?php echo $produto['Local'];?></div>
-            <div class="panel-heading"><strong>Serviço Solicitado:</strong></div>
+            <div class="panel-heading"><strong>Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['servico'];?></strong></div>
             <div class="panel-heading"><strong>Data e Hora da abertura do Chamado:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHora'];?></div>
@@ -96,7 +96,7 @@ $num2 = $execute2->num_rows;
         <form method="POST" action="processa_notificacao.php">
             <div class="form-group">
                 <input type="hidden" name="var" id="var" value="<?php print $chamado ?>" />
-                <label for="comment">Serviço Executados:</label>
+                <label for="comment">Resposta:</label>
                 <textarea name="servicoexe" class="form-control" rows="5" id="servicoexe"></textarea>
             </div>
             <label for="datetimepicker1">Data e Hora Inicio do Atendimento:</label>
@@ -141,7 +141,7 @@ $num2 = $execute2->num_rows;
                 });
                 </script>
             </div>
-            <button type="submit" class="btn btn-default">Salvar Chamado</button>
+            <button type="submit" class="btn btn-default">Enviar Resposta</button>
         </form>
     </div>
 </body>

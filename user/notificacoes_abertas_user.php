@@ -57,6 +57,7 @@ $num2 = $execute2->num_rows;
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="user_home.php">Home</a></li>
+                    <li><a href="nova_notificacao_user.php">Abrir Notificação</a></li>
                     <li>
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Minhas Notificações<span
                                 class="caret"></span></a>
@@ -77,7 +78,7 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container" id="limitscrol">
-        <h3>Responda suas notificações abaixo</h3>
+        <h3>Responda suas Notificações</h3>
         <table class="table table-striped table table-bordered">
             <?php if($num > 0){ ?>
             <thead class="painel-title">

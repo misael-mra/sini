@@ -74,21 +74,21 @@ $produto = $execute->fetch_assoc();
 
 
     <div class="container">
-        <h2 class="text-center"><strong>Dados do Chamado <?php echo $chamado;?></strong></h2>
+        <h2 class="text-center"><strong>Dados da Notificação nº <?php echo $chamado;?></strong></h2>
         <div class="panel panel-default">
-            <div class="panel-heading"><strong>Local do chamado:</strong></div>
+            <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
             <div class="panel-body"><?php echo $produto['Local'];?></div>
-            <div class="panel-heading"><strong>Serviço Solicitado:</strong></div>
+            <div class="panel-heading"><strong>Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['servico'];?></div>
-            <div class="panel-heading"><strong>Data e Hora da abertura do Chamado:</strong></div>
+            <div class="panel-heading"><strong>Data e Hora da abertura da Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHora'];?></div>
-            <div class="panel-heading"><strong>Serviço Executado:</strong></div>
+            <div class="panel-heading"><strong>Resposta Setor Notificado:</strong></div>
             <div class="panel-body"><?php echo $produto['serviexecu'];?></div>
-            <div class="panel-heading"><strong>Data e Hora Início do Atendimento:</strong></div>
+            <div class="panel-heading"><strong>Data e Hora Início da Resposta:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHoraAber'];?></div>
-            <div class="panel-heading"><strong>Data e Hora Final do Atendimento:</strong></div>
+            <div class="panel-heading"><strong>Data e Hora Final do Resposta:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHoraFim'];?></div>
-            <div class="panel-heading"><strong>Status do Chamado:</strong></div>
+            <div class="panel-heading"><strong>Status do Notificação:</strong></div>
             <?php if ($produto['Status']=="Aberto"){?>
 
             <div class="panel-body" style="background-color:#F00;"> <?php echo $produto['Status']; ?></div>

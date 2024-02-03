@@ -22,11 +22,11 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-			Chamado realizado com sucesso !
+			Notificação respondida com sucesso!
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
-		  <a class="btn btn-success" href="Tecnico-Home.php">
+		  <a class="btn btn-success" href="user_home.php">
    Entendido
 </a>
         </div>
@@ -50,7 +50,7 @@
 	$datafimfez = $_POST['dateFrom2'];
 	
 	$status = "Feito";
-	$query = "UPDATE chamados1 SET serviexecu = '".$servicoexecutado."', DataHoraAber = '".$datainiciofez."',DataHoraFim = '".$datafimfez."',Status = '".$status."' WHERE (contador = ".$numeroos.")";
+	$query = "UPDATE notificacoes SET serviexecu = '".$servicoexecutado."', DataHoraAber = '".$datainiciofez."',DataHoraFim = '".$datafimfez."',Status = '".$status."' WHERE (contador = ".$numeroos.")";
    
       $resultado_usuario = mysqli_query($conn, $query);
   

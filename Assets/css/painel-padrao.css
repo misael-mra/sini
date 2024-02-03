@@ -66,6 +66,8 @@
   }
 
   #limitscrol{
+    width: 90%;
     overflow-x: auto;
+    white-space:nowrap;
   }
   
