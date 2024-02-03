@@ -76,7 +76,7 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container">
-        <h3>Todos os Chamados para <?php echo $_SESSION['sess_usersisname'];?></h3>
+        <h3>Notificações para <?php echo $_SESSION['sess_usersisname'];?></h3>
         <table class="table table-striped table table-bordered">
             <?php if($num > 0){ ?>
             <thead>

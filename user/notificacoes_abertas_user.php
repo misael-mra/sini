@@ -77,17 +77,17 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container">
-        <h3>Seus chamados em aberto</h3>
+        <h3>Responda suas notificações abaixo</h3>
         <table class="table table-striped table table-bordered">
             <?php if($num > 0){ ?>
             <thead>
                 <tr>
-                    <th>OS</th>
-                    <th>Local</th>
-                    <th>Técnico</th>
+                    <th>Código</th>
+                    <th>Local Ocorrência</th>
+                    <th>Responsável pelo setor</th>
                     <th>Abertura</th>
                     <th>Status</th>
-                    <th>Det.</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -138,7 +138,6 @@ $num2 = $execute2->num_rows;
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
