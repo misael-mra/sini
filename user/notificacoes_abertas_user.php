@@ -9,21 +9,21 @@
 include("conexao.php");
 $pagina = isset($_GET['pagina']) ? max(0, intval($_GET['pagina'])) : 0;
 $itens_por_pagina = 10;
-$tecnico = $_SESSION['sess_username'];
+$responsavel_setor = $_SESSION['sess_username'];
 $item = $pagina * $itens_por_pagina;
-$sql_code = "select contador,Local, Tecnico, DataHora,Status,servico from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'  ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
+$sql_code = "select contador,unidade,setor,local_ocorrencia,grau_incidente,DataHora,afetou_paciente,nome_paciente,prontuario,status_atual,responsavel_setor from notificacoes WHERE status_atual='Aberto' AND responsavel_setor='$responsavel_setor'  ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
-$num_total = $conn->query("select contador,Local, Tecnico, DataHora,Status,servico from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'")->num_rows;
+$num_total = $conn->query("select contador,unidade,setor,local_ocorrencia,grau_incidente,DataHora,afetou_paciente,nome_paciente,prontuario,status_atual,responsavel_setor from notificacoes WHERE status_atual='Aberto' AND responsavel_setor='$responsavel_setor'")->num_rows;
 $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 
 <?php
-$tecnico = $_SESSION['sess_username'];
+$responsavel_setor = $_SESSION['sess_username'];
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code2 = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
+$sql_code2 = "select * from notificacoes WHERE status_atual='Aberto' AND responsavel_setor='$responsavel_setor'";
 $execute2 = $mysqli->query($sql_code2) or die($mysqli->error);
 $produto2 = $execute2->fetch_assoc();
 $num2 = $execute2->num_rows;
@@ -84,6 +84,7 @@ $num2 = $execute2->num_rows;
             <thead class="painel-title">
                 <tr>
                     <th>Código</th>
+                    <th>Unidade</th>
                     <th>Local Ocorrência</th>
                     <th>Responsável pelo setor</th>
                     <th>Abertura</th>
@@ -95,14 +96,15 @@ $num2 = $execute2->num_rows;
                 <?php do{ ?>
                 <tr>
                     <td><?php echo $produto['contador'];?></td>
-                    <td><?php echo $produto['Local'];?></td>
-                    <td><?php echo $produto['Tecnico']; ?></td>
+                    <td><?php echo $produto['unidade'];?></td>
+                    <td><?php echo $produto['local_ocorrencia'];?></td>
+                    <td><?php echo $produto['responsavel_setor']; ?></td>
                     <td><?php echo $produto['DataHora']; ?></td>
-                    <?php if ($produto['Status']=="Aberto"){?>
-                    <td style="background-color:#ffbcbc;"> <?php echo $produto['Status']; ?></td>
+                    <?php if ($produto['status_atual']=="Aberto"){?>
+                    <td style="background-color:#ffbcbc;"> <?php echo $produto['status_atual']; ?></td>
                     <?php } 
-							 elseif ($produto['Status']=="Feito") {?>
-                    <td style="background-color:#abfdab;"> <?php echo $produto['Status']; ?></td>
+							 elseif ($produto['status_atual']=="Feito") {?>
+                    <td style="background-color:#abfdab;"> <?php echo $produto['status_atual']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
                             href="responder_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"

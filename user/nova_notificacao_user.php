@@ -6,10 +6,10 @@ if (!isset($_SESSION['sess_username']) || $role != "tecnico") {
 }
 ?>
 <?php
-$tecnico = $_SESSION['sess_username'];
+$responsavel_setor = $_SESSION['sess_username'];
 include("conecta-puxa-dados-admin.php");
 // puxar notificacoes do banco
-$sql_code = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
+$sql_code = "select * from notificacoes WHERE status_atual='Aberto' AND responsavel_setor='$responsavel_setor'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
@@ -65,10 +65,10 @@ $num2 = $execute->num_rows;
 
     <div class="container painel-title">NOTIFICAÇÃO</div>
     <div class="container painel-notificacao">
-        <form method="POST" action="processa-insere-notificacao.php">
+        <form method="POST" action="processa_nova_notificacao.php">
             <div class="form-group col-xs-12 col-sm-12">
                 <label for="sel1"><span class="text-danger">*</span> Unidade de Ocorrência:</label>
-                <select class="form-control" id="local" name="local">
+                <select class="form-control" id="unidade" name="unidade">
                     <option>SELECIONE</option>
                     <option>UAPS AIRTON MONTE</option>
                     <option>UAPS FERNANDO FAÇANHA</option>
@@ -101,63 +101,63 @@ $num2 = $execute->num_rows;
                 <div class="p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <div id="SetoNotificacao" class="form-group form-group-sm">
                         <label for="isnSetorNotificado" class="control-label"><span class="text-danger">*</span>
-                            Setor Notificado: </label><select id="isnSetorNotificado"
-                            name="conteudo:viewEdicao:isnSetorNotificado" class="form-control">
-                            <option value="0">SELECIONE</option>
-                            <option value="119">ALMOXARIFADO</option>
-                            <option value="125">AMBULATÓRIO</option>
-                            <option value="128">CENTRAL DE TRANSPORTE DE PACIENTES</option>
-                            <option value="135">COORDENAÇÃO GERAL DE ENFERMAGEM</option>
-                            <option value="133">DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
-                            <option value="132">DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
-                            <option value="131">DIREÇÃO GERAL</option>
-                            <option value="120">FARMÁCIA</option>
-                            <option value="113">MANUTENÇÃO</option>
-                            <option value="134">NAC</option>
-                            <option value="118">NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
-                            <option value="115">NÚCLEO ADM.FINANCEIRO</option>
-                            <option value="116">NÚCLEO ADMINISTRATIVO HOTELARIA</option>
-                            <option value="163">NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
-                            <option value="117">NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
-                            <option value="114">NÚCLEO GESTÃO PESSOAS</option>
-                            <option value="161">OUVIDORIA</option>
-                            <option value="136">SERVIÇO SOCIAL</option>
-                            <option value="157">SESMT</option>
+                            Setor Notificado: </label><select id="setor"
+                            name="setor" class="form-control">
+                            <option >SELECIONE</option>
+                            <option >ALMOXARIFADO</option>
+                            <option >AMBULATÓRIO</option>
+                            <option >CENTRAL DE TRANSPORTE DE PACIENTES</option>
+                            <option >COORDENAÇÃO GERAL DE ENFERMAGEM</option>
+                            <option >DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
+                            <option >DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
+                            <option >DIREÇÃO GERAL</option>
+                            <option >FARMÁCIA</option>
+                            <option >MANUTENÇÃO</option>
+                            <option >NAC</option>
+                            <option >NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
+                            <option >NÚCLEO ADM.FINANCEIRO</option>
+                            <option >NÚCLEO ADMINISTRATIVO HOTELARIA</option>
+                            <option >NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
+                            <option >NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
+                            <option >NÚCLEO GESTÃO PESSOAS</option>
+                            <option >OUVIDORIA</option>
+                            <option >SERVIÇO SOCIAL</option>
+                            <option >SESMT</option>
                         </select>
                     </div>
                 </div>
                 <!-- LOCAL DE OCORRENCIA -->
                 <div class="p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <div id="cadastrarIsnUnidadeOcorrencia" class="form-group form-group-sm">
-                        <label for="isnUnidadeOcorrencia" class="control-label"><span class="text-danger">*</span>
-                            Local Ocorrência: </label><select id="isnUnidadeOcorrencia" name="isnUnidadeOcorrencia"
+                    <div id="cadastrarlocal" class="form-group form-group-sm">
+                        <label for="local" class="control-label"><span class="text-danger">*</span>
+                            Local Ocorrência: </label><select id="local" name="local"
                             class="form-control">
-                            <option value="0">SELECIONE</option>
-                            <option value="1">ALMOXARIFADO</option>
-                            <option value="2">AMBULATÓRIO</option>
-                            <option value="3">CENTRAL DE TRANSPORTE DE PACIENTES</option>
-                            <option value="4">COORDENAÇÃO GERAL DE ENFERMAGEM</option>
-                            <option value="5">DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
-                            <option value="6">DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
-                            <option value="7">DIREÇÃO GERAL</option>
-                            <option value="8">FARMÁCIA</option>
-                            <option value="9">MANUTENÇÃO</option>
-                            <option value="10">NAC</option>
-                            <option value="11">NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
-                            <option value="12">NÚCLEO ADM.FINANCEIRO</option>
-                            <option value="13">NÚCLEO ADMINISTRATIVO HOTELARIA</option>
-                            <option value="14">NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
-                            <option value="15">NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
-                            <option value="16">NÚCLEO GESTÃO PESSOAS</option>
-                            <option value="17">OUVIDORIA</option>
-                            <option value="18">SERVIÇO SOCIAL</option>
-                            <option value="19">SESMT</option>
+                            <option>SELECIONE</option>
+                            <option>ALMOXARIFADO</option>
+                            <option>AMBULATÓRIO</option>
+                            <option>CENTRAL DE TRANSPORTE DE PACIENTES</option>
+                            <option>COORDENAÇÃO GERAL DE ENFERMAGEM</option>
+                            <option>DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
+                            <option>DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
+                            <option>DIREÇÃO GERAL</option>
+                            <option>FARMÁCIA</option>
+                            <option>MANUTENÇÃO</option>
+                            <option>NAC</option>
+                            <option>NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
+                            <option>NÚCLEO ADM.FINANCEIRO</option>
+                            <option>NÚCLEO ADMINISTRATIVO HOTELARIA</option>
+                            <option>NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
+                            <option>NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
+                            <option>NÚCLEO GESTÃO PESSOAS</option>
+                            <option>OUVIDORIA</option>
+                            <option>SERVIÇO SOCIAL</option>
+                            <option>SESMT</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <label for="afetouPaciente" class="control-label"><span class="text-danger">*</span>
-                        Grau do Incidente: </label><select id="afetouPaciente" name="afetouPaciente" size="1"
+                    <label for="grau_incidente" class="control-label"><span class="text-danger">*</span>
+                        Grau do Incidente: </label><select id="grau_incidente" name="grau_incidente"
                         class="form-control">
                         <option>SELECIONE</option>
                         <option>Não conformidade</option>
@@ -182,11 +182,11 @@ $num2 = $execute->num_rows;
                         Envolveu o Paciente? </label><br>
                     <div class="btn-group">
                         <label>
-                            <input type="radio" name="afetouPaciente" id="afetouPaciente1" value="sim"
+                            <input type="radio" name="afetouPaciente" id="afetouPaciente1" value="Sim"
                                 autocomplete="off"> Sim
                         </label>
                         <label>
-                            <input type="radio" name="afetouPaciente" id="afetouPaciente2" value="nao"
+                            <input type="radio" name="afetouPaciente" id="afetouPaciente2" value="Não"
                                 autocomplete="off" style="margin-left:50px;" checked> Não
                         </label>
                     </div>
@@ -194,11 +194,11 @@ $num2 = $execute->num_rows;
 
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="comment">Nome do Paciente</label>
-                    <input name="servico" class="form-control" id="comment" autocomplete="off"></input>
+                    <input name="nome_paciente" class="form-control" id="comment" autocomplete="off"></input>
                 </div>
                 <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <label for="comment">Prontuário</label>
-                    <input name="servico" class="form-control" id="comment"></input>
+                    <input name="prontuario" class="form-control" id="comment"></input>
                 </div>
             </div>
             <div class="form-group col-xs-12 col-sm-12">
@@ -206,7 +206,7 @@ $num2 = $execute->num_rows;
                 <H6>Descreva o evento (O quê, como, onde e quando ocorreu. Tente descrever o evento com o
                     máximo
                     possível de dados para podermos identificar a falha e melhorar nossos processos)</H6>
-                <textarea name="servico" class="form-control" rows="4" id="comment" autocomplete="off"
+                <textarea name="texto_notificacao" class="form-control" rows="4" id="comment" autocomplete="off"
                     required></textarea>
             </div>
 

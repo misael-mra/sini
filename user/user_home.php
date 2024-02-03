@@ -7,8 +7,8 @@
 ?>
 <?php
 include("conecta-puxa-dados-admin.php");
-$tecnico = $_SESSION['sess_username'];
-$sql_code = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
+$responsavel_setor = $_SESSION['sess_username'];
+$sql_code = "select * from notificacoes WHERE status_atual='Aberto' AND responsavel_setor='$responsavel_setor'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
