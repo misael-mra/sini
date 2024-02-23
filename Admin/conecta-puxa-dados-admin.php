@@ -10,9 +10,9 @@ $password_conexao = "5upr1m4r7";
 */
 
 $hostname_conexao = "localhost";
-$database_conexao = "sine";
-$username_conexao = "root";
-$password_conexao = "";
+$database_conexao = "id21835333_sini";
+$username_conexao = "id21835333_sini";
+$password_conexao = "Sini@2024";
 
 $mysqli = new mysqli($hostname_conexao, $username_conexao, $password_conexao, $database_conexao);
 if ($mysqli->connect_errno) {

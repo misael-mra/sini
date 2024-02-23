@@ -9,7 +9,7 @@
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code = "select * from notificacoes WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE status_atual='Aberto'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;

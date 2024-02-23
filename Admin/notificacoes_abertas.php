@@ -3,11 +3,11 @@ include("conexao.php");
 $pagina = isset($_GET['pagina']) ? max(0, intval($_GET['pagina'])) : 0;
 $itens_por_pagina = 20;
 $item = $pagina * $itens_por_pagina;
-$sql_code = "select contador,Local, Tecnico, DataHora,Status,servico from notificacoes WHERE Status='Aberto' ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
+$sql_code = "select contador,unidade,setor,local_ocorrencia,grau_incidente,DataHora,afetou_paciente,nome_paciente,prontuario,status_atual,responsavel_setor from notificacoes WHERE status_atual='Aberto' ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
-$num_total = $conn->query("select contador,Local, Tecnico, DataHora,Status,servico from notificacoes WHERE Status='Aberto'")->num_rows;
+$num_total = $conn->query("select contador,unidade,setor,local_ocorrencia,grau_incidente,DataHora,afetou_paciente,nome_paciente,prontuario,status_atual,responsavel_setor from notificacoes WHERE status_atual='Aberto'")->num_rows;
 $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 
@@ -22,7 +22,7 @@ $num_paginas = ceil($num_total/$itens_por_pagina);
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar notificacoes do banco
-$sql_code = "select * from notificacoes WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE status_atual='Aberto'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
@@ -109,13 +109,13 @@ $num2 = $execute->num_rows;
                 <?php do{ ?>
                 <tr>
                     <td><?php echo $produto['contador'];?></td>
-                    <td><?php echo $produto['Local'];?></td>
-                    <td><?php echo $produto['Tecnico']; ?></td>
+                    <td><?php echo $produto['local_ocorrencia'];?></td>
+                    <td><?php echo $produto['responsavel_setor']; ?></td>
                     <td><?php echo $produto['DataHora']; ?></td>
-                    <?php if ($produto['Status']=="Aberto"){?>
-                    <td style="background-color:#F00;"> <?php echo $produto['Status']; ?></td>
-                    <?php }elseif ($produto['Status']=="Feito") {?>
-                    <td style="background-color:#0F0;"> <?php echo $produto['Status']; ?></td>
+                    <?php if ($produto['status_atual']=="Aberto"){?>
+                    <td style="background-color:#F00;"> <?php echo $produto['status_atual']; ?></td>
+                    <?php }elseif ($produto['status_atual']=="Feito") {?>
+                    <td style="background-color:#0F0;"> <?php echo $produto['status_atual']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
                             href="detalhes-notificacao-admin.php?chamado=<?php echo $produto['contador'];?>"
