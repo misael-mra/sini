@@ -12,11 +12,11 @@ include("conexao.php");
 $pagina = isset($_GET['pagina']) ? max(0, intval($_GET['pagina'])) : 0;
 $itens_por_pagina = 10;
 $responsavel_setor = $_SESSION['sess_username'];
-$sql_code = "select contador,local_ocorrencia, responsavel_setor, DataHora,status_atual,texto_notificacao from notificacoes WHERE  contador='$chamado'";
+$sql_code = "select contador,local_ocorrencia, setor, responsavel_setor, DataHora,status_atual,texto_notificacao from notificacoes WHERE  contador='$chamado'";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
-$num_total = $conn->query("select contador,local_ocorrencia, responsavel_setor, DataHora,status_atual,texto_notificacao from notificacoes WHERE  responsavel_setor='$responsavel_setor'")->num_rows;
+$num_total = $conn->query("select contador,local_ocorrencia, setor, responsavel_setor, DataHora,status_atual,texto_notificacao from notificacoes WHERE  responsavel_setor='$responsavel_setor'")->num_rows;
 $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 <?php
@@ -85,6 +85,8 @@ $num2 = $execute2->num_rows;
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
             <div class="panel-body"><?php echo $produto['local_ocorrencia'];?></div>
+            <div class="panel-heading"><strong>Setor:</strong></div>
+            <div class="panel-body"><?php echo $produto['setor'];?></div>
             <div class="panel-heading"><strong>Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['texto_notificacao'];?></strong></div>
             <div class="panel-heading"><strong>Abertura:</strong></div>
@@ -128,6 +130,10 @@ $num2 = $execute2->num_rows;
             <button type="submit" class="btn btn-default">Enviar Resposta</button>
         </form>
     </div>
+    <footer class="rodape" style="position: fixed;">
+        <p class="text-footer">© 2024 ICEPES | CISNE - INSTITUTO CISNE DE ENSINO E PESQUISA. TODOS OS DIREITOS
+            RESERVADOS.</p>
+    </footer>
 </body>
 
 </html>
