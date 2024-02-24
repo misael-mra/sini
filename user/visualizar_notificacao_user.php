@@ -74,13 +74,13 @@ $produto = $execute->fetch_assoc();
 
 
     <div class="container">
-        <h2 class="text-center"><strong>Dados da Notificação nº <?php echo $notificacao;?></strong></h2>
-        <div class="panel panel-default">
+        <h2 class="text-center"><strong>Dados da Notificação Nº <?php echo $notificacao;?></strong></h2>
+        <div class="panel panel-default ">
             <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
             <div class="panel-body"><?php echo $produto['local_ocorrencia'];?></div>
             <div class="panel-heading"><strong>Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['texto_notificacao'];?></div>
-            <div class="panel-heading"><strong>Data e Hora da abertura da Notificação:</strong></div>
+            <div class="panel-heading"><strong>Abertura da Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHora'];?></div>
             <div class="panel-heading"><strong>Resposta Setor Notificado:</strong></div>
             <div class="panel-body"><?php echo $produto['resposta_notificacao'];?></div>
