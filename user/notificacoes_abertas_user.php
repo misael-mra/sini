@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $role = $_SESSION['sess_userrole'];
-    if(!isset($_SESSION['sess_username']) || $role!="tecnico"){
+    if(!isset($_SESSION['sess_username']) || $role!="coordenador"){
       header('Location: ../index.php?err=2');
     }
 ?>
@@ -109,7 +109,7 @@ $num2 = $execute2->num_rows;
                     <td> <a class="btn btn-info btn-sm"
                             href="responder_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
                             data-toggle="tooltip" title="Responder Notificação"><span
-                                class="glyphicon glyphicon-edit"></span>Fazer</button></td>
+                                class="glyphicon glyphicon-edit"></span> Responder</button></td>
                 </tr>
                 <?php } while($produto = $execute->fetch_assoc()); ?>
             </tbody>

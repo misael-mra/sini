@@ -1,7 +1,7 @@
 <?php
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code = "select * from notificacoes WHERE Status='Aberto'";
+$sql_code = "select * from notificacoes WHERE status_atual='Aberto'";
 $execute = $mysqli->query($sql_code) or die($mysqli->error);
 $produto = $execute->fetch_assoc();
 $num2 = $execute->num_rows;
@@ -121,26 +121,26 @@ $num2 = $execute->num_rows;
             <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                 <label for="setorUsuario" class="control-label"><span class="text-danger">*</span>
                     Setor </label><select id="setorUsuario" name="setorUsuario" class="form-control">
-                    <option value="0">SELECIONE</option>
-                    <option value="1">ALMOXARIFADO</option>
-                    <option value="2">AMBULATÓRIO</option>
-                    <option value="3">CENTRAL DE TRANSPORTE DE PACIENTES</option>
-                    <option value="4">COORDENAÇÃO GERAL DE ENFERMAGEM</option>
-                    <option value="5">DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
-                    <option value="6">DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
-                    <option value="7">DIREÇÃO GERAL</option>
-                    <option value="8">FARMÁCIA</option>
-                    <option value="9">MANUTENÇÃO</option>
-                    <option value="10">NAC</option>
-                    <option value="11">NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
-                    <option value="12">NÚCLEO ADM.FINANCEIRO</option>
-                    <option value="13">NÚCLEO ADMINISTRATIVO HOTELARIA</option>
-                    <option value="14">NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
-                    <option value="15">NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
-                    <option value="16">NÚCLEO GESTÃO PESSOAS</option>
-                    <option value="17">OUVIDORIA</option>
-                    <option value="18">SERVIÇO SOCIAL</option>
-                    <option value="19">SESMT</option>
+                    <option >SELECIONE</option>
+                    <option >ALMOXARIFADO</option>
+                    <option >AMBULATÓRIO</option>
+                    <option >CENTRAL DE TRANSPORTE DE PACIENTES</option>
+                    <option >COORDENAÇÃO GERAL DE ENFERMAGEM</option>
+                    <option >DIREÇÃO DE GESTÃO E ATENDIMENTO</option>
+                    <option >DIREÇÃO DE PROCESSOS ASSISTENCIAIS</option>
+                    <option >DIREÇÃO GERAL</option>
+                    <option >FARMÁCIA</option>
+                    <option >MANUTENÇÃO</option>
+                    <option >NAC</option>
+                    <option >NÚCLEO ADM. CONTROLE PATRIMONIAL</option>
+                    <option >NÚCLEO ADM.FINANCEIRO</option>
+                    <option >NÚCLEO ADMINISTRATIVO HOTELARIA</option>
+                    <option >NÚCLEO ADMINISTRATIVO SETOR DE PESSOAL</option>
+                    <option >NÚCLEO ADM. SUPRIMENTO E LOGÍSTICA</option>
+                    <option >NÚCLEO GESTÃO PESSOAS</option>
+                    <option >OUVIDORIA</option>
+                    <option >SERVIÇO SOCIAL</option>
+                    <option >SESMT</option>
                 </select>
             </div>
             <div class="form-group p-0 sm:p-0 md:px-4 lg:px-4 col-xs-12 col-sm-12 col-md-3 col-lg-3">

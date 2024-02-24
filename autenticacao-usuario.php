@@ -29,11 +29,11 @@
 			header('Location: Admin/Admin-Home.php');
 			break;
 			
-			case "tecnico":
+			case "coordenador":
 			header('Location: user/user_home.php');
 			break;
 			
-			case "subadim":
+			case "user":
 			header('Location: SubAdmin/SubAdmin-Home.php');
 			break;
 		}
