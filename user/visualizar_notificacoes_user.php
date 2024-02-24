@@ -11,11 +11,11 @@ $pagina = isset($_GET['pagina']) ? max(0, intval($_GET['pagina'])) : 0;
 $itens_por_pagina = 20;
 $responsavel_setor = $_SESSION['sess_username'];
 $item = $pagina * $itens_por_pagina;
-$sql_code = "select * from notificacoes WHERE  responsavel_setor='$responsavel_setor'  ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
+$sql_code = "select * from notificacoes WHERE responsavel_setor='$responsavel_setor' ORDER BY contador DESC LIMIT $item, $itens_por_pagina";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
-$num_total = $conn->query("select * from notificacoes WHERE  responsavel_setor='$responsavel_setor'")->num_rows;
+$num_total = $conn->query("select * from notificacoes WHERE responsavel_setor='$responsavel_setor'")->num_rows;
 $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 <?php
@@ -102,7 +102,7 @@ $num2 = $execute2->num_rows;
                     <td style="background-color:#abfdab;"> <?php echo $produto['status_atual']; ?></td>
                     <?php } ?>
                     <td> <a class="btn btn-info btn-sm"
-                            href="visualizar_notificacao_user.php?chamado=<?php echo $produto['contador'];?>"
+                            href="visualizar_notificacao_user.php?notificacao=<?php echo $produto['contador'];?>"
                             data-toggle="tooltip" title="Visualizar notificação"><span
                                 class="glyphicon glyphicon-share"></span>Ver</button></td>
                 </tr>

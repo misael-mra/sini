@@ -4,20 +4,20 @@
     if(!isset($_SESSION['sess_username']) || $role!="coordenador"){
        header('Location: ../index.php?err=2');
     }
-	$chamado = $_GET["chamado"];
+	$notificacao = $_GET["notificacao"];
 ?>
 <?php
-$tecnico = $_SESSION['sess_username'];
+$responsavel_setor = $_SESSION['sess_username'];
 include("conecta-puxa-dados-admin.php");
 // puxar produtos do banco
-$sql_code2 = "select * from notificacoes WHERE Status='Aberto' AND Tecnico='$tecnico'";
+$sql_code2 = "select * from notificacoes WHERE status_atual='Aberto' AND responsavel_setor='$responsavel_setor'";
 $execute2 = $mysqli->query($sql_code2) or die($mysqli->error);
 $produto2 = $execute2->fetch_assoc();
 $num2 = $execute2->num_rows;
 ?>
 <?php
 include("conexao.php");
-$sql_code = "select contador,Local, Tecnico, DataHora,Status,servico,serviexecu,DataHoraAber,DataHoraFim from notificacoes WHERE  contador='$chamado'";
+$sql_code = "select contador,local_ocorrencia, responsavel_setor, DataHora,status_atual,texto_notificacao,resposta_notificacao,DataHoraAber,DataHoraFim from notificacoes WHERE contador='$notificacao'";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 ?>
@@ -74,27 +74,27 @@ $produto = $execute->fetch_assoc();
 
 
     <div class="container">
-        <h2 class="text-center"><strong>Dados da Notificação nº <?php echo $chamado;?></strong></h2>
+        <h2 class="text-center"><strong>Dados da Notificação nº <?php echo $notificacao;?></strong></h2>
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
-            <div class="panel-body"><?php echo $produto['Local'];?></div>
+            <div class="panel-body"><?php echo $produto['local_ocorrencia'];?></div>
             <div class="panel-heading"><strong>Notificação:</strong></div>
-            <div class="panel-body"><?php echo $produto['servico'];?></div>
+            <div class="panel-body"><?php echo $produto['texto_notificacao'];?></div>
             <div class="panel-heading"><strong>Data e Hora da abertura da Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHora'];?></div>
             <div class="panel-heading"><strong>Resposta Setor Notificado:</strong></div>
-            <div class="panel-body"><?php echo $produto['serviexecu'];?></div>
+            <div class="panel-body"><?php echo $produto['resposta_notificacao'];?></div>
             <div class="panel-heading"><strong>Data e Hora Início da Resposta:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHoraAber'];?></div>
             <div class="panel-heading"><strong>Data e Hora Final do Resposta:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHoraFim'];?></div>
-            <div class="panel-heading"><strong>Status do Notificação:</strong></div>
-            <?php if ($produto['Status']=="Aberto"){?>
+            <div class="panel-heading"><strong>Status da Notificação:</strong></div>
+            <?php if ($produto['status_atual']=="Aberto"){?>
 
-            <div class="panel-body" style="background-color:#F00;"> <?php echo $produto['Status']; ?></div>
+            <div class="panel-body" style="background-color:#F00;"> <?php echo $produto['status_atual']; ?></div>
             <?php } 
-								elseif ($produto['Status']=="Feito") {?>
-            <div class="panel-body" style="background-color:#0F0;"> <?php echo $produto['Status']; ?></div>
+								elseif ($produto['status_atual']=="Feito") {?>
+            <div class="panel-body" style="background-color:#0F0;"> <?php echo $produto['status_atual']; ?></div>
             <?php } ?>
 
         </div>
