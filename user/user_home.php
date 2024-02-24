@@ -43,6 +43,7 @@ $num2 = $execute->num_rows;
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="user_home.php">Home</a></li>
+                    <li><a href="nova_notificacao_user.php">Abrir Notificação</a></li>
                     <li>
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Minhas Notificações<span
                                 class="caret"></span></a>
