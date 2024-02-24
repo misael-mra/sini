@@ -117,7 +117,7 @@ $num2 = $execute2->num_rows;
         <nav>
             <ul class="pagination">
                 <li>
-                    <a href="Chamados_abertos_tec.php?pagina=0" aria-label="Previous">
+                    <a href="notificacoes_abertas_user.php?pagina=0" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -128,10 +128,10 @@ $num2 = $execute2->num_rows;
 				    	$estilo = "class=\"active\"";
 				    ?>
                 <li <?php echo $estilo; ?>><a
-                        href="Chamados_abertos_tec.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
+                        href="notificacoes_abertas_user.php?pagina=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
                 <?php } ?>
                 <li>
-                    <a href="Chamados_abertos_tec.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
+                    <a href="notificacoes_abertas_user.php?pagina=<?php echo $num_paginas-1; ?>" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
