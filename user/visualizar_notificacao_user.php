@@ -91,15 +91,15 @@ $produto = $execute->fetch_assoc();
             <div class="panel-heading"><strong>Status da Notificação:</strong></div>
             <?php if ($produto['status_atual']=="Aberto"){?>
 
-            <div class="panel-body" style="background-color:#F00;"> <?php echo $produto['status_atual']; ?></div>
+            <div class="panel-body" style="background-color:#ffbcbc;"> <?php echo $produto['status_atual']; ?></div>
             <?php } 
 								elseif ($produto['status_atual']=="Feito") {?>
-            <div class="panel-body" style="background-color:#0F0;"> <?php echo $produto['status_atual']; ?></div>
+            <div class="panel-body" style="background-color:#abfdab;"> <?php echo $produto['status_atual']; ?></div>
             <?php } ?>
 
         </div>
     </div>
-    <footer class="rodape" style="position: fixed;">
+    <footer class="rodape">
         <p class="text-footer">© 2024 ICEPES | CISNE - INSTITUTO CISNE DE ENSINO E PESQUISA. TODOS OS DIREITOS
             RESERVADOS.</p>
     </footer>

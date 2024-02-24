@@ -130,7 +130,7 @@ $num2 = $execute2->num_rows;
             <button type="submit" class="btn btn-default">Enviar Resposta</button>
         </form>
     </div>
-    <footer class="rodape" style="position: fixed;">
+    <footer class="rodape">
         <p class="text-footer">© 2024 ICEPES | CISNE - INSTITUTO CISNE DE ENSINO E PESQUISA. TODOS OS DIREITOS
             RESERVADOS.</p>
     </footer>
