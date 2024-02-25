@@ -54,8 +54,9 @@
     $prontuario = $_POST['prontuario'];
 	$texto_notificacao = $_POST['texto_notificacao'];
 	$status = "Aberto";
-    $nova_notifica = "INSERT INTO notificacoes (unidade,setor,local_ocorrencia,grau_incidente,DataHora,afetou_paciente,nome_paciente,prontuario,status_atual,texto_notificacao) 
-    VALUES ('$unidade','$setor','$local','$grau_incidente','$dataOcorrencia','$afetouPaciente','$nome_paciente','$prontuario','$status', '$texto_notificacao')";
+    $notificador = $_SESSION['sess_usersisname'];
+    $nova_notifica = "INSERT INTO notificacoes (unidade,setor,local_ocorrencia,grau_incidente,DataHora,afetou_paciente,nome_paciente,prontuario,status_atual,texto_notificacao, notificador) 
+    VALUES ('$unidade','$setor','$local','$grau_incidente','$dataOcorrencia','$afetouPaciente','$nome_paciente','$prontuario','$status', '$texto_notificacao', '$notificador')";
     $nova_notificacao = mysqli_query($conn, $nova_notifica);
     if(mysqli_affected_rows($conn) != 0){
 		echo '<script type="text/javascript"> $("#myModal2").modal("show")</script>';

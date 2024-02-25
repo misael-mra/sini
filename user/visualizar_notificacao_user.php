@@ -17,7 +17,7 @@ $num2 = $execute2->num_rows;
 ?>
 <?php
 include("conexao.php");
-$sql_code = "select contador,local_ocorrencia, responsavel_setor, DataHora,status_atual,texto_notificacao,resposta_notificacao,DataHoraAber,DataHoraFim from notificacoes WHERE contador='$notificacao'";
+$sql_code = "select contador, unidade, local_ocorrencia, responsavel_setor, DataHora,status_atual,texto_notificacao,resposta_notificacao,DataHoraAber,DataHoraFim, notificador from notificacoes WHERE contador='$notificacao'";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 ?>
@@ -74,21 +74,25 @@ $produto = $execute->fetch_assoc();
 
 
     <div class="container">
-        <h2 class="text-center"><strong>Dados da Notificação Nº <?php echo $notificacao;?></strong></h2>
+        <h5 class="text-center painel-title2" style="margin-bottom:0px"><strong>INFORMAÇÕES DA NOTIFICAÇÃO - Nº <?php echo $notificacao;?></strong></h5>
         <div class="panel panel-default ">
-            <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
+            <div class="painel-title3"><strong>Unidade:</strong></div>
+            <div class="panel-body"><?php echo $produto['unidade'];?></div>
+            <div class="painel-title3"><strong>Local Ocorrência:</strong></div>
             <div class="panel-body"><?php echo $produto['local_ocorrencia'];?></div>
-            <div class="panel-heading"><strong>Notificação:</strong></div>
+            <div class="painel-title3"><strong>Notificador:</strong></div>
+            <div class="panel-body"><?php echo $produto['notificador'];?></div>
+            <div class="painel-title3"><strong>O que Aconteceu:</strong></div>
             <div class="panel-body"><?php echo $produto['texto_notificacao'];?></div>
-            <div class="panel-heading"><strong>Abertura da Notificação:</strong></div>
+            <div class="painel-title3"><strong>Abertura da Notificação:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHora'];?></div>
-            <div class="panel-heading"><strong>Resposta Setor Notificado:</strong></div>
+            <div class="painel-title3"><strong>Resposta:</strong></div>
             <div class="panel-body"><?php echo $produto['resposta_notificacao'];?></div>
-            <div class="panel-heading"><strong>Data e Hora Início da Resposta:</strong></div>
+            <div class="painel-title3"><strong>Data da Classificação:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHoraAber'];?></div>
-            <div class="panel-heading"><strong>Data e Hora Final do Resposta:</strong></div>
+            <div class="painel-title3"><strong>Data da Resposta:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHoraFim'];?></div>
-            <div class="panel-heading"><strong>Status da Notificação:</strong></div>
+            <div class="painel-title3"><strong>Status da Notificação:</strong></div>
             <?php if ($produto['status_atual']=="Aberto"){?>
 
             <div class="panel-body" style="background-color:#ffbcbc;"> <?php echo $produto['status_atual']; ?></div>
@@ -99,7 +103,7 @@ $produto = $execute->fetch_assoc();
 
         </div>
     </div>
-    <footer class="rodape">
+    <footer class="rodape" style="position: fixed;">
         <p class="text-footer">© 2024 ICEPES | CISNE - INSTITUTO CISNE DE ENSINO E PESQUISA. TODOS OS DIREITOS
             RESERVADOS.</p>
     </footer>

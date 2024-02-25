@@ -12,11 +12,11 @@ include("conexao.php");
 $pagina = isset($_GET['pagina']) ? max(0, intval($_GET['pagina'])) : 0;
 $itens_por_pagina = 10;
 $responsavel_setor = $_SESSION['sess_username'];
-$sql_code = "select contador,local_ocorrencia, setor, responsavel_setor, DataHora,status_atual,texto_notificacao from notificacoes WHERE  contador='$chamado'";
+$sql_code = "select contador,local_ocorrencia, unidade, setor, responsavel_setor, DataHora,status_atual,texto_notificacao, notificador from notificacoes WHERE  contador='$chamado'";
 $execute = $conn->query($sql_code) or die($conn->error);
 $produto = $execute->fetch_assoc();
 $num = $execute->num_rows;
-$num_total = $conn->query("select contador,local_ocorrencia, setor, responsavel_setor, DataHora,status_atual,texto_notificacao from notificacoes WHERE  responsavel_setor='$responsavel_setor'")->num_rows;
+$num_total = $conn->query("select contador, unidade, local_ocorrencia, setor, responsavel_setor, DataHora,status_atual,texto_notificacao,notificador from notificacoes WHERE  responsavel_setor='$responsavel_setor'")->num_rows;
 $num_paginas = ceil($num_total/$itens_por_pagina);
 ?>
 <?php
@@ -81,27 +81,31 @@ $num2 = $execute2->num_rows;
         </div>
     </nav>
     <div class="container">
-        <h2>Dados da Notificação <?php echo $chamado;?></h2>
+        <h5 class="painel-title2" style="margin-bottom:0px">INFORMAÇÕES DA NOTIFICAÇÃO - Nº <?php echo $chamado;?></h5>
         <div class="panel panel-default">
-            <div class="panel-heading"><strong>Local Ocorrência:</strong></div>
+            <div class="painel-title3"><strong>Unidade:</strong></div>
+            <div class="panel-body"><?php echo $produto['unidade'];?></div>
+            <div class="painel-title3"><strong>Local Ocorrência:</strong></div>
             <div class="panel-body"><?php echo $produto['local_ocorrencia'];?></div>
-            <div class="panel-heading"><strong>Setor:</strong></div>
+            <div class="painel-title3"><strong>Setor Notificado:</strong></div>
             <div class="panel-body"><?php echo $produto['setor'];?></div>
-            <div class="panel-heading"><strong>Notificação:</strong></div>
-            <div class="panel-body"><?php echo $produto['texto_notificacao'];?></strong></div>
-            <div class="panel-heading"><strong>Abertura:</strong></div>
+            <div class="painel-title3"><strong>Notificador:</strong></div>
+            <div class="panel-body"><?php echo $produto['notificador'];?></div>
+            <div class="painel-title3"><strong>Abertura:</strong></div>
             <div class="panel-body"><?php echo $produto['DataHora'];?></div>
+            <div class="painel-title3"><strong>Notificação:</strong></div>
+            <div class="panel-body"><?php echo $produto['texto_notificacao'];?></strong></div>
+
         </div>
     </div>
     <div class="container">
-        <h2>Preencha:</h2>
+        <h5 class="painel-title2" style="margin-bottom:0px">RESPOSTA</h5>
         <form method="POST" action="processa_notificacao.php">
             <div class="form-group">
                 <input type="hidden" name="var" id="var" value="<?php print $chamado ?>" />
-                <label for="comment">Resposta:</label>
-                <textarea name="texto_notificacao" class="form-control" rows="8" id="texto_notificacao"></textarea>
+                <textarea name="texto_notificacao" class="form-control" rows="8" id="texto_notificacao" placeholder="Escreva aqui sua resposta ao evento"></textarea>
             </div>
-            <label for="datetime1">Data e Hora Inicio do Atendimento:</label>
+            <label for="datetime1">Data da Classificação:</label>
             <div class="row">
                 <div class='col-sm-6'>
                     <div class="form-group">
@@ -114,7 +118,7 @@ $num2 = $execute2->num_rows;
                     </div>
                 </div>
             </div>
-            <label for="datetime2">Data e Hora Final do Atendimento:</label>
+            <label for="datetime2">Data da Resposta:</label>
             <div class="row">
                 <div class='col-sm-6'>
                     <div class="form-group">
@@ -127,7 +131,7 @@ $num2 = $execute2->num_rows;
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-default">Enviar Resposta</button>
+            <button type="submit" class="btn btn-primary">Enviar Resposta</button>
         </form>
     </div>
     <footer class="rodape">

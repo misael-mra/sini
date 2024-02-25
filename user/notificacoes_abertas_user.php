@@ -86,7 +86,7 @@ $num2 = $execute2->num_rows;
                     <th>Código</th>
                     <th>Unidade</th>
                     <th>Local Ocorrência</th>
-                    <th>Responsável pelo setor</th>
+                    <th>Setor Notificado</th>
                     <th>Abertura</th>
                     <th>Status</th>
                     <th>Ações</th>
@@ -98,7 +98,7 @@ $num2 = $execute2->num_rows;
                     <td><?php echo $produto['contador'];?></td>
                     <td><?php echo $produto['unidade'];?></td>
                     <td><?php echo $produto['local_ocorrencia'];?></td>
-                    <td><?php echo $produto['responsavel_setor']; ?></td>
+                    <td><?php echo $produto['setor']; ?></td>
                     <td><?php echo $produto['DataHora']; ?></td>
                     <?php if ($produto['status_atual']=="Aberto"){?>
                     <td style="background-color:#ffbcbc;"> <?php echo $produto['status_atual']; ?></td>
